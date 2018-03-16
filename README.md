@@ -144,7 +144,7 @@ print azlyrics.artist("o")
 
 #### Get Songs
 
-This endpoint returns songs for an artist.
+This method returns songs for an artist.
 
 ```python
 print azlyrics.songs("Oasis")
@@ -287,7 +287,7 @@ print azlyrics.songs("Oasis")
 
 #### Get Lyrics
 
-This endpoint returns lyrics for a song.
+This method returns lyrics for a song.
 
 ```python
 print azlyrics.get("Oasis", "Magic Pie")
