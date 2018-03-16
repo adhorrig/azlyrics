@@ -52,7 +52,7 @@ setup(
   url = 'https://github.com/adhorrig/azlyrics',
   download_url = 'https://github.com/adhorrig/azlyrics/archive/0.1.tar.gz',
   keywords = ['azlyrics', 'lyrics', 'albums', 'artists', 'songs', 'music', 'api'],
-  install_requires=['requests' 'beautifulsoup4'],
+  install_requires=['requests', 'beautifulsoup4'],
   classifiers = [],
   cmdclass={
           'publish': PublishCommand,
