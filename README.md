@@ -144,7 +144,7 @@ print artists("o")
 
 #### Get Songs
 
-This endpoint returns songs for an artist.
+This method returns songs for an artist.
 
 ```python
 print songs("Oasis")
@@ -287,7 +287,7 @@ print songs("Oasis")
 
 #### Get Lyrics
 
-This endpoint returns lyrics for a song.
+This method returns lyrics for a song.
 
 ```python
 print lyrics("Oasis", "Magic Pie")
