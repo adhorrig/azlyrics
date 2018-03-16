@@ -19,13 +19,13 @@ easy_install azlyrics`
 
 ## Usage
 
-Firstly, you will need to import the module;
+Firstly, you will need to import the methods from the `azlyrics` module;
 
 ```
-from azlyrics import azlyrics
+from azlyrics import artists, songs, artists
 ```
 
-From the `azlyrics` object, you will be able to access the following methods;
+You will then be able to use these methods as so;
 
 ```
 artists(letter)
