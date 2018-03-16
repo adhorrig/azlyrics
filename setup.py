@@ -2,6 +2,7 @@
 from setuptools import setup, Command
 import sys
 import os
+from shutil import rmtree
 
 with open("README.md", "rb") as f:
     long_descr = f.read().decode("utf-8")
