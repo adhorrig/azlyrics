@@ -4,7 +4,7 @@ import sys
 import os
 from shutil import rmtree
 
-with open("README.md", "rb") as f:
+with open("README.rst", "rb") as f:
     long_descr = f.read().decode("utf-8")
 
 here = os.path.abspath(os.path.dirname(__file__))
