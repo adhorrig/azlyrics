@@ -44,7 +44,7 @@ class PublishCommand(Command):
 setup(
   name = 'azlyrics',
   packages = ['azlyrics'],
-  version = '0.1',
+  version = '1.0',
   description = 'An API wrapper for azlyrics which allows you to programatically extract data',
   long_description=long_descr,
   author = 'Adam Horrigan',
