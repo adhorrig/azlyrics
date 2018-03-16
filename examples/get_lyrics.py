@@ -1,4 +1,4 @@
 from azlyrics import lyrics
-wd = lyrics("Taylor Swift", "Wildest Dreams")
+wd = lyrics("Oasis", "Magic Pie")
 for line in wd:
     print(line)

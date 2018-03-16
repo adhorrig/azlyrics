@@ -2,3 +2,5 @@ env/
 dist
 build
 azlyrics.egg-info/
+__init__.pyc
+azlyrics.pyc
