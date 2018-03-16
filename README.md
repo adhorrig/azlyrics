@@ -38,7 +38,7 @@ lyrics(song, artist)
 The artists method will returns all artists associated with a letter. For example - https://www.azlyrics.com/o.html.
 
 ```python
-print azlyrics.artist("o")
+print artists("o")
 ```
 
 > The above command will return the following:
@@ -147,7 +147,7 @@ print azlyrics.artist("o")
 This endpoint returns songs for an artist.
 
 ```python
-print azlyrics.songs("Oasis")
+print songs("Oasis")
 ```
 
 > The above command will return the following:
@@ -290,7 +290,7 @@ print azlyrics.songs("Oasis")
 This endpoint returns lyrics for a song.
 
 ```python
-print azlyrics.get("Oasis", "Magic Pie")
+print lyrics("Oasis", "Magic Pie")
 ```
 
 > The above command returns the following:

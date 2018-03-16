@@ -1,2 +1,2 @@
 from azlyrics import artists
-print azlyrics.artists("O")
+print artists("O")
