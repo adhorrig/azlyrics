@@ -1,0 +1,1 @@
+from azlyrics import *
