@@ -26,7 +26,7 @@ def artists(letter):
 
 
 def songs(artist):
-    artist = artist.lower()
+    artist = artist.lower().replace(" ", "")
     first_char = artist[0]
     url = base+first_char+"/"+artist+".html"
     req = requests.get(url, headers=headers)
