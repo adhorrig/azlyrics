@@ -1,1 +1,1 @@
-from azlyrics import *
+from .azlyrics import *

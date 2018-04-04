@@ -11,7 +11,7 @@ base = "https://www.azlyrics.com/"
 def artists(letter):
     if letter.isalpha() and len(letter) is 1:
         letter = letter.lower()
-        url = base+letter+".html"
+        url = base + letter + ".html"
         req = requests.get(url, headers=headers)
         soup = BeautifulSoup(req.content, "html.parser")
         data = []
@@ -28,25 +28,25 @@ def artists(letter):
 def songs(artist):
     artist = artist.lower().replace(" ", "")
     first_char = artist[0]
-    url = base+first_char+"/"+artist+".html"
+    url = base + first_char + "/" + artist + ".html"
     req = requests.get(url, headers=headers)
 
     artist = {
         'artist': artist,
         'albums': {}
-        }
+    }
 
     soup = BeautifulSoup(req.content, 'html.parser')
 
     all_albums = soup.find('div', id='listAlbum')
     first_album = all_albums.find('div', class_='album')
     album_name = first_album.b.text
-    songs = []
+    s = []
 
     for tag in first_album.find_next_siblings(['a', 'div']):
         if tag.name == 'div':
-            artist['albums'][album_name] = songs
-            songs = []
+            artist['albums'][album_name] = s
+            s = []
             if tag.b is None:
                 pass
             elif tag.b:
@@ -56,23 +56,23 @@ def songs(artist):
             if tag.text is "":
                 pass
             elif tag.text:
-                songs.append(tag.text)
+                s.append(tag.text)
 
-    artist['albums'][album_name] = songs
+    artist['albums'][album_name] = s
 
-    return (json.dumps(artist))
+    return json.dumps(artist)
 
 
 def lyrics(artist, song):
     artist = artist.lower().replace(" ", "")
     song = song.lower().replace(" ", "")
-    url = base+"lyrics/"+artist+"/"+song+".html"
+    url = base + "lyrics/" + artist + "/" + song + ".html"
 
     req = requests.get(url, headers=headers)
     soup = BeautifulSoup(req.content, "html.parser")
-    lyrics = soup.find_all("div", attrs={"class": None, "id": None})
-    if not lyrics:
-        return {'Error': 'Unable to find '+song+' by '+artist}
-    elif lyrics:
-        lyrics = [x.getText() for x in lyrics]
-        return lyrics
+    l = soup.find_all("div", attrs={"class": None, "id": None})
+    if not l:
+        return {'Error': 'Unable to find ' + song + ' by ' + artist}
+    elif l:
+        l = [x.getText() for x in l]
+        return l

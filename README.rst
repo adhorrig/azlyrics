@@ -44,7 +44,7 @@ For example - https://www.azlyrics.com/o.html.
 
 .. code:: python
 
-    print artists("o")
+    print(artists("o"))
 
 ..
 
@@ -155,7 +155,7 @@ This method returns songs for an artist.
 
 .. code:: python
 
-    print songs("Oasis")
+    print(songs("Oasis"))
 
 ..
 
@@ -301,7 +301,7 @@ This method returns lyrics for a song.
 
 .. code:: python
 
-    print lyrics("Oasis", "Magic Pie")
+    print(lyrics("Oasis", "Magic Pie"))
 
 ..
 
