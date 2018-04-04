@@ -1,2 +1,2 @@
 from azlyrics import songs
-print songs("Oasis")
+print(songs("Oasis"))
