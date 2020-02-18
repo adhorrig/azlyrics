@@ -28,39 +28,40 @@ def artists(letter):
 def songs(artist):
     artist = artist.lower().replace(" ", "")
     first_char = artist[0]
-    url = base + first_char + "/" + artist + ".html"
+    url = base+first_char+"/"+artist+".html"
     req = requests.get(url, headers=headers)
 
     artist = {
         'artist': artist,
         'albums': {}
-    }
+        }
 
     soup = BeautifulSoup(req.content, 'html.parser')
 
     all_albums = soup.find('div', id='listAlbum')
     first_album = all_albums.find('div', class_='album')
-    album_name = first_album.b.text
-    s = []
+    album_name = first_album.b.text.strip('"')
+    songs = []
 
     for tag in first_album.find_next_siblings(['a', 'div']):
-        if tag.name == 'div':
-            artist['albums'][album_name] = s
-            s = []
+        tag_class = tag['class'][0]
+        if tag_class == 'album':
+            artist['albums'][album_name] = songs
+            songs = []
             if tag.b is None:
                 pass
             elif tag.b:
-                album_name = tag.b.text
+                album_name = tag.b.text.strip('"')
 
-        else:
+        elif tag_class == "listalbum-item":
             if tag.text is "":
                 pass
             elif tag.text:
-                s.append(tag.text)
+                songs.append(tag.text)
 
-    artist['albums'][album_name] = s
+    artist['albums'][album_name] = songs
 
-    return json.dumps(artist)
+    return artist
 
 
 def lyrics(artist, song):
