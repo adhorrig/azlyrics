@@ -9,7 +9,7 @@ base = "https://www.azlyrics.com/"
 
 
 def artists(letter):
-    if letter.isalpha() and len(letter) is 1:
+    if letter.isalpha() and len(letter) == 1:
         letter = letter.lower()
         url = base + letter + ".html"
         req = requests.get(url, headers=headers)
@@ -44,7 +44,7 @@ def songs(artist):
     s = []
 
     for tag in first_album.find_next_siblings(['a', 'div']):
-        if tag.name == 'div':
+        if tag.name == 'listalbum-item':
             artist['albums'][album_name] = s
             s = []
             if tag.b is None:
@@ -53,7 +53,7 @@ def songs(artist):
                 album_name = tag.b.text
 
         else:
-            if tag.text is "":
+            if tag.text == "":
                 pass
             elif tag.text:
                 s.append(tag.text)
