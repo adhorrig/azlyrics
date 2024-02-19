@@ -46,11 +46,15 @@ def songs(artist):
     for tag in first_album.find_next_siblings(['a', 'div']):
         if tag.name == 'div':
             artist['albums'][album_name] = s
-            s = []
+            if tag.a is None:
+                pass
+            elif tag.a:
+                s.append(tag.a.text)
             if tag.b is None:
                 pass
             elif tag.b:
                 album_name = tag.b.text
+                s = []
 
         else:
             if tag.text is "":
